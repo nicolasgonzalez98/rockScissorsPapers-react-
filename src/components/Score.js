@@ -28,7 +28,7 @@ export const Score = () => {
         @media screen and (max-width: 768px) {
             width: 30%;
             .number{
-                font-size: 5rem;
+                font-size: 4rem;
             }
         }
     `

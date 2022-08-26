@@ -17,9 +17,9 @@ export default function Header(){
         
         @media screen and (max-width: 768px) {
             width: 90%;
-
+            height: 18vh;
             img{
-                width: 45%;
+                width: 40%;
             }
 
             
