@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { Score } from "./Score";
-import logo_img from '../images/logo.svg'
+import { Score } from "../Score/Score";
+
 
 export default function Header(){
+    
     
     const HeaderStyle = styled.div`
         text-transform: uppercase;
@@ -29,7 +30,7 @@ export default function Header(){
 
     return (
         <HeaderStyle>
-            <img src={logo_img} alt='logo'/>
+            <img src='./images/logo.svg' alt='logo'/>
             <Score />
         </HeaderStyle>
     )

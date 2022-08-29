@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import Header from './components/Header';
+import Header from './components/Header/Header';
+import Table from './components/Table/Table';
 import { ScoreContextProvider } from './context/ScoreContext';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
       <AppStyled>
         <div className='app-content'>
           <Header />
+          <Table />
         </div>
       </AppStyled>
     </ScoreContextProvider>

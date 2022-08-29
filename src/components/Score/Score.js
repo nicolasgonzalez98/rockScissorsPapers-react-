@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import styled from "styled-components";
-import { ScoreContext } from "../context/ScoreContext";
+import { ScoreContext } from "../../context/ScoreContext";
 
 export const Score = () => {
     const { score } = useContext(ScoreContext)
