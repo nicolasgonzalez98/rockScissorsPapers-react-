@@ -30,6 +30,7 @@ function App() {
           <div className='app-content'>
             <Header />
             <Table />
+            <button>Rules</button>
           </div>
         </Wrapper>
       </AppStyled>

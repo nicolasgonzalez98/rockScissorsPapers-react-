@@ -15,11 +15,11 @@ const box = keyframes`
 
 const CardStyled = styled.div`
         
-        width: 130px;
-        height: 125px;
+        width: 160px;
+        height: 155px;
         padding: ${({ name }) => (name === "default" ? "16px" : "0")};
         border-radius: 50%;
-        border: 16px solid ${({color}) => color.border};
+        border: 16px solid ${({color}) => color.base};
         cursor: pointer;
         position: relative;
         z-index: 2;
@@ -28,7 +28,8 @@ const CardStyled = styled.div`
         
 
         .box{
-            background-color: white;
+            background: ${({ name }) => (name === "default" ? "#122343" : "white")};
+            box-shadow: 0 -4px 0 ${({ name }) => name === "default" ? "transparent" : "#babfd4"};
             display: flex;
             flex: 1;
             justify-content: center;
@@ -60,14 +61,17 @@ const CardStyled = styled.div`
         },
     };
 
-export default function GameCard({name = "default"}){
+export default function GameCard({name = "default", onClick}){
+    function handleClick(){
+        if (onClick) {
+            onClick(name);
+        }
+    }
 
     const color = colors[name];
     
-
     return (
-        <CardStyled name={name} color={color}>
-            
+        <CardStyled name={name} color={color} onClick={handleClick}>
             <div className="box">
                 <img src={`./images/icon-${name}.svg`} alt=''/>
             </div>
