@@ -5,16 +5,31 @@ import GameCard from "../GameCard/Gamecard";
 
 const TableStyle = styled.div`
         display: grid;
-        grid-template-columns: repeat(2, 130px);
+        grid-template-columns: repeat(2, 150px);
         justify-content: center;
         justify-items: center;
-        grid-gap: 30px 50px;
+        grid-gap: 30px 100px;
         margin: 2em 0;
         position: relative;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 0.8em;
+        font-weight: 700;
+        letter-spacing: 1px;
 
         & div:nth-of-type(3) {
             grid-column: span 2;
         }
+
+        
+
+        /* .end-game{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+
+        } */
     `
 
 const elements = ['paper', 'scissors', 'rock']
@@ -97,15 +112,50 @@ export default function Table(){
         console.log(result_match)
         if(result_match === 'win'){
             setScore(score+1)
+        }else if(result_match === 'lose'){
+            setScore(score-1)
         }
         
     }
 
+    function handleTryAgain(){
+        SetPlaying(false)
+        setResult('')
+    }
+
     return (
         <TableStyle>
-            <GameCard name="paper" onClick={onClick}/>
-            <GameCard name="scissors" onClick={onClick}/>
-            <GameCard name="rock" onClick={onClick}/>
+            {
+                !isPlaying ? 
+                <>
+                    <GameCard name="paper" onClick={onClick}/>
+                    <GameCard name="scissors" onClick={onClick}/>
+                    <GameCard name="rock" onClick={onClick}/>
+                </> : 
+                <>
+                
+                    <div className="end-game">
+                        <GameCard name={pick} />
+                        <p>You picked</p>
+                    </div>
+                    <div className="end-game">
+                        <GameCard name={housePick} />
+                        <p>The house picked</p>
+                    </div>
+                    <div className="results">
+                    {
+                        result && 
+                        (<>
+                            
+                                <h2>You {result}</h2>
+                                <button onClick={() => handleTryAgain()}>Try Again</button>
+                            
+                        </>)
+                    }
+                    </div>
+                
+                </>
+            }
         </TableStyle>
     )
 }
