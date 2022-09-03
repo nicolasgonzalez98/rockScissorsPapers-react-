@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Header from './components/Header/Header';
+import Rules from './components/Rules/Rules';
 import Table from './components/Table/Table';
 import { Wrapper } from './components/Wrapper/Wrapper';
 import { ScoreContextProvider } from './context/ScoreContext';
@@ -21,6 +22,10 @@ function App() {
       justify-content: space-between;
       align-items: center;
     }
+
+    .button-rules{
+      align-self: flex-start;
+    }
   `
 
   return (
@@ -30,7 +35,7 @@ function App() {
           <div className='app-content'>
             <Header />
             <Table />
-            <button>Rules</button>
+            <Rules />
           </div>
         </Wrapper>
       </AppStyled>

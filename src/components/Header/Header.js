@@ -15,6 +15,8 @@ export default function Header(){
         display: flex;
         justify-content: space-between;
         width: 50vw;
+
+        
         
         @media screen and (max-width: 768px) {
             width: 90%;

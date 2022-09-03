@@ -16,13 +16,19 @@ const TableStyle = styled.div`
         font-size: 0.8em;
         font-weight: 700;
         letter-spacing: 1px;
-
+        
         & div:nth-of-type(3) {
             grid-column: span 2;
         }
 
-        
-
+        .results {
+            text-align: center;
+            h2 {
+            text-transform: uppercase;
+            font-size: 56px;
+            margin: 10px;
+            }
+        }
         /* .end-game{
             display: flex;
             flex-direction: column;
@@ -30,6 +36,37 @@ const TableStyle = styled.div`
             justify-content: space-around;
 
         } */
+        .line{
+            display: ${({ isPlaying }) => (!isPlaying ? "block" : "none")};
+            height: 14px;
+            background: rgba(0, 0, 0, 0.2);
+            position: absolute;
+            width: 220px;
+            top: 58px;
+
+            &::before {
+                content: "";
+                height: 14px;
+                background: rgba(0, 0, 0, 0.2);
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                transform: rotate(55deg);
+                transform-origin: left top;
+                }
+            &::after {
+                content: "";
+                height: 14px;
+                background: rgba(0, 0, 0, 0.2);
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                transform: rotate(-55deg);
+                transform-origin: right top;
+                }
+        }
     `
 
 const elements = ['paper', 'scissors', 'rock']
@@ -124,7 +161,8 @@ export default function Table(){
     }
 
     return (
-        <TableStyle>
+        <TableStyle isPlaying={isPlaying}>
+            <span className="line"></span>
             {
                 !isPlaying ? 
                 <>
@@ -135,11 +173,11 @@ export default function Table(){
                 <>
                 
                     <div className="end-game">
-                        <GameCard name={pick} />
+                        <GameCard isPlaying={isPlaying} name={pick} isShadowAnimated={result === 'win'}/>
                         <p>You picked</p>
                     </div>
                     <div className="end-game">
-                        <GameCard name={housePick} />
+                        <GameCard isPlaying={isPlaying} name={housePick} isShadowAnimated={result === 'lose'}/>
                         <p>The house picked</p>
                     </div>
                     <div className="results">
