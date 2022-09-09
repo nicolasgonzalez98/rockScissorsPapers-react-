@@ -21,3 +21,13 @@ const ButtonGame = styled.button`
 export const Button = ({children, ...props}) => {
     return <ButtonGame {...props}>{children}</ButtonGame>
 }
+
+export const WhiteButton = styled(ButtonGame)`
+    background: white;
+    color: #101a3f;
+    min-width: 220px;
+
+    :hover{
+        color: red;
+    }
+`

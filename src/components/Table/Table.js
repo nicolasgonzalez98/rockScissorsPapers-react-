@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import styled from 'styled-components'
 import { ScoreContext } from "../../context/ScoreContext";
+import { WhiteButton } from "../Buttons/Buttons";
 import GameCard from "../GameCard/Gamecard";
 
 const TableStyle = styled.div`
@@ -29,13 +30,15 @@ const TableStyle = styled.div`
             margin: 10px;
             }
         }
-        /* .end-game{
+        .end-game{
             display: flex;
-            flex-direction: column;
+            flex-direction: column-reverse;
             align-items: center;
-            justify-content: space-around;
+            justify-content:space-around;
+            
+        }
 
-        } */
+        
         .line{
             display: ${({ isPlaying }) => (!isPlaying ? "block" : "none")};
             height: 14px;
@@ -173,11 +176,11 @@ export default function Table(){
                 <>
                 
                     <div className="end-game">
-                        <GameCard isPlaying={isPlaying} name={pick} isShadowAnimated={result === 'win'}/>
+                        <GameCard isPlaying={isPlaying} name={pick} isShadowAnimated={result === 'win'} playing={isPlaying}/>
                         <p>You picked</p>
                     </div>
                     <div className="end-game">
-                        <GameCard isPlaying={isPlaying} name={housePick} isShadowAnimated={result === 'lose'}/>
+                        <GameCard isPlaying={isPlaying} name={housePick} isShadowAnimated={result === 'lose'} playing={isPlaying}/>
                         <p>The house picked</p>
                     </div>
                     <div className="results">
@@ -186,7 +189,7 @@ export default function Table(){
                         (<>
                             
                                 <h2>You {result}</h2>
-                                <button onClick={() => handleTryAgain()}>Try Again</button>
+                                <WhiteButton onClick={() => handleTryAgain()}>Try Again</WhiteButton>
                             
                         </>)
                     }

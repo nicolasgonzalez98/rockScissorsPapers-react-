@@ -25,6 +25,7 @@ const CardStyled = styled.div`
         z-index: 2;
         display: flex;
         box-shadow: 0 5px 0 ${({ color }) => color.border};
+        
 
         ${({isShadowAnimated}) => isShadowAnimated && 'box-shadow: 0 0 0 0px rgba(255,255,255, .04), 0 0 0 0px rgba(255,255,255, .03), 0 0 0 0px rgba(255,255,255, .02);' }
 
@@ -49,6 +50,9 @@ const CardStyled = styled.div`
                 animation: 1s ${({ isShadowAnimated }) => isShadowAnimated ? box : ''};
             }
         }
+
+        
+  }
     `
 
     const colors = {
@@ -70,7 +74,7 @@ const CardStyled = styled.div`
         },
     };
 
-export default function GameCard({name = "default", onClick, isShadowAnimated = false}){
+export default function GameCard({name = "default", onClick, isShadowAnimated = false, playing}){
     function handleClick(){
         if (onClick) {
             onClick(name);
@@ -80,7 +84,7 @@ export default function GameCard({name = "default", onClick, isShadowAnimated = 
     const color = colors[name];
     
     return (
-        <CardStyled name={name} color={color} onClick={handleClick} isShadowAnimated={isShadowAnimated}>
+        <CardStyled name={name} color={color} onClick={handleClick} isShadowAnimated={isShadowAnimated} playing={playing}>
             <div className="box">
                 <img src={`./images/icon-${name}.svg`} alt=''/>
             </div>

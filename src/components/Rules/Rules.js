@@ -25,7 +25,7 @@ const RulesStyle = styled.div`
         justify-content: space-between;
         flex-direction: column;
         width: 30%;
-        height: 60%;
+        height: 52%;
         left: 0; 
         right: 0;
         top: 0;
@@ -46,15 +46,18 @@ const RulesStyle = styled.div`
     }
     
     .close-button{
-        padding: 1em;
-        margin-top: 2em;
+        position: absolute;
+        right: 2em;
+        top: 2.5em;
+        /* padding: 1em; */
+        
         cursor: pointer;   
     }
     
     .rules-button{
-        position: fixed;
-        right: 2px;
-        bottom: 2px;
+        position: absolute;
+        right: 1rem;
+        bottom: 0;
     }
 `
 
