@@ -51,8 +51,10 @@ const CardStyled = styled.div`
             }
         }
 
-        
-  }
+        @media screen and (min-width: 1024px) {
+            ${({ playing }) => playing ? 'width: 300px; height: 295px; border-width: 32px;' : 'width: 200px; height: 195px;'}
+        }
+
     `
 
     const colors = {

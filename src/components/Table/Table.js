@@ -32,10 +32,14 @@ const TableStyle = styled.div`
         }
         .end-game{
             display: flex;
-            flex-direction: column-reverse;
+            flex-direction: column;
             align-items: center;
             justify-content:space-around;
-            
+            > p {
+                    
+                    margin-top: 2em;
+                    font-size: medium;
+                }
         }
 
         
@@ -69,6 +73,39 @@ const TableStyle = styled.div`
                 transform: rotate(-55deg);
                 transform-origin: right top;
                 }
+        }
+
+        @media screen and (min-width: 1024px) {
+            grid-template-columns: 300px 300px;
+            ${({ isPlaying, results }) => (isPlaying && results) && "grid-template-columns: 300px 110px 110px 300px;"}
+            
+            & div:nth-of-type(3) {
+                ${({ isPlaying, results }) =>
+                (isPlaying && results) && "grid-column: 2 / 4; grid-row: 1;"}
+    }
+            .line {
+            width: 300px;
+            }
+
+            .results {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            .end-game {
+                font-size: 1.2em;
+                display: flex;
+                flex-direction: column;
+                > div {
+                    order: 2;
+                }
+                > p {
+                    order: 1;
+                    margin-bottom: 2em;
+                }
+            }
         }
     `
 
@@ -164,7 +201,7 @@ export default function Table(){
     }
 
     return (
-        <TableStyle isPlaying={isPlaying}>
+        <TableStyle isPlaying={isPlaying} results={(result !== "") ? 1 : undefined}>
             <span className="line"></span>
             {
                 !isPlaying ? 
