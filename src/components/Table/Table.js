@@ -76,15 +76,15 @@ const TableStyle = styled.div`
         }
 
         @media screen and (min-width: 1024px) {
-            grid-template-columns: 300px 300px;
-            ${({ isPlaying, results }) => (isPlaying && results) && "grid-template-columns: 300px 110px 110px 300px;"}
+            grid-template-columns: 18.75rem 18.75rem;
+            ${({ isPlaying, results }) => (isPlaying && results) && "grid-template-columns: 18.75rem 6.875rem 6.875rem 18.75rem;"}
             
             & div:nth-of-type(3) {
                 ${({ isPlaying, results }) =>
                 (isPlaying && results) && "grid-column: 2 / 4; grid-row: 1;"}
     }
             .line {
-            width: 300px;
+            width: 18.75rem;
             }
 
             .results {
