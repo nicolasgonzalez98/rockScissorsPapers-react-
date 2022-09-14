@@ -52,7 +52,7 @@ const CardStyled = styled.div`
         }
 
         @media screen and (min-width: 1024px) {
-            ${({ playing }) => playing ? 'width: 18.75rem; height: 18.438rem; border-width: 2rem;' : 'width: 12.5rem; height: 12.188rem;'}
+            ${({ playing }) => playing ? 'width: 15rem; height: 15.2rem; border-width: 1.6rem;' : 'width: 10rem; height: 9.7rem;'}
         }
 
     `
